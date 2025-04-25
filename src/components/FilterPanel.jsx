@@ -1,9 +1,42 @@
 import { useEffect, useState } from "react";
 
-const FilterPanel = ({ filters, setFilters, doctors }) => {
+// Array of specialties for the filter
+const SPECIALTIES = [
+  "General Physician",
+  "Dentist",
+  "Dermatologist",
+  "Paediatrician",
+  "Gynaecologist",
+  "ENT",
+  "Diabetologist",
+  "Cardiologist",
+  "Physiotherapist",
+  "Endocrinologist",
+  "Orthopaedic",
+  "Ophthalmologist",
+  "Gastroenterologist",
+  "Pulmonologist",
+  "Psychiatrist",
+  "Urologist",
+  "Dietitian/Nutritionist",
+  "Psychologist",
+  "Sexologist",
+  "Nephrologist",
+  "Neurologist",
+  "Oncologist",
+  "Ayurveda",
+  "Homeopath",
+];
+
+const FilterPanel = ({
+  filters,
+  setFilters,
+  doctors,
+}) => {
   const [specialties, setSpecialties] = useState([]);
 
   useEffect(() => {
+    // Extract unique specialties from the doctor data and set them
     const uniqueSpecs = Array.from(
       new Set(doctors.map((doc) => doc.specialty))
     );
@@ -46,17 +79,19 @@ const FilterPanel = ({ filters, setFilters, doctors }) => {
 
       <div style={{ marginBottom: "1rem" }}>
         <strong>Specialties:</strong>
-        {specialties.map((spec) => (
-          <label key={spec} style={{ display: "block" }}>
-            <input
-              type="checkbox"
-              value={spec}
-              checked={filters.specialties.includes(spec)}
-              onChange={handleSpecialtyChange}
-            />
-            {spec}
-          </label>
-        ))}
+        <div className="specialties-filter">
+          {SPECIALTIES.map((specialty) => (
+            <label key={specialty}>
+              <input
+                type="checkbox"
+                value={specialty}
+                checked={filters.specialties.includes(specialty)}
+                onChange={handleSpecialtyChange}
+              />
+              {specialty}
+            </label>
+          ))}
+        </div>
       </div>
 
       <div>
