@@ -16,7 +16,7 @@ const DoctorList = ({ doctors }) => {
             <h3>{doc.name}</h3>
             <p>Specialty: {doc.specialty}</p>
             <p>Experience: {doc.experience} years</p>
-            <p>Fees: ₹{doc.fees}</p>
+            <p>Fees: {doc.fees}</p>
             <p>Consultation: {doc.consultationType}</p>
           </div>
         ))}
