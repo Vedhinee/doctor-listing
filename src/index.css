@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+select, input[type="text"] {
+  margin-top: 0.5rem;
+  padding: 8px;
+  font-size: 1rem;
+}
+
+strong {
+  display: block;
+  margin-bottom: 0.3rem;
+}
